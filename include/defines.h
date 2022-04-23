@@ -7,4 +7,4 @@ typedef unsigned	   int 		uint32_t;	/*无符号32位*/
 
 typedef   signed	   char 	int8_t;	    /*有符号8位*/
 typedef   signed short int 		int16_t;    /*有符号16位*/
-typedef   signed	   int 		uint32_t;	/*有符号32位*/
+typedef   signed	   int 		int32_t;	/*有符号32位*/

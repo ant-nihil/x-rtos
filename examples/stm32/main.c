@@ -1,7 +1,6 @@
-#include "stm32f4xx.h"
-#include "led_stm32.h"
+#include "stm32f4_includes.h"
 
-int main(int argc, int* argv[])
+int main(int argc, char* argv[])
 {
 	led_init();
 	led_open_all();

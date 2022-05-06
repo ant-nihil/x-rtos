@@ -26,11 +26,11 @@ void led_init(void)
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13 | GPIO_Pin_14;
     GPIO_Init(GPIOC, &GPIO_InitStructure);
 	
-	led_close_all();	//关闭所有LED灯
+	led_all_close();	//关闭所有LED灯
 }
 
 //关闭所有LED灯
-void led_close_all(void)
+void led_all_close(void)
 {
     /*关闭左后方蓝色灯，右后方蓝色灯不受stm32f4控制*/
 	GPIO_ResetBits(GPIOB,  GPIO_Pin_12); //LED_BLUE_L
@@ -42,7 +42,7 @@ void led_close_all(void)
 }
 
 //打开所有LED灯
-void led_open_all(void)
+void led_all_open(void)
 {
     /*打开蓝色 LED*/
 	GPIO_SetBits(  GPIOB,  GPIO_Pin_12); //LED_BLUE_L
@@ -52,4 +52,58 @@ void led_open_all(void)
 	GPIO_ResetBits(GPIOA,  GPIO_Pin_7 ); //LED_RED_L
 	GPIO_SetBits(  GPIOC,  GPIO_Pin_13); //LED_GREEN_R
 	GPIO_ResetBits(GPIOC,  GPIO_Pin_14); //LED_RED_R
+}
+
+// led1_red
+void led1_open_red(void)
+{
+	GPIO_ResetBits(  GPIOC,  GPIO_Pin_13); 	//LED_GREEN_R
+	GPIO_SetBits(GPIOC,  GPIO_Pin_14); 		//LED_RED_R
+}
+
+// led1_green
+void led1_open_green(void)
+{
+	GPIO_SetBits(  GPIOC,  GPIO_Pin_13); 	//LED_GREEN_R
+	GPIO_ResetBits(GPIOC,  GPIO_Pin_14); 	//LED_RED_R
+}
+
+// led1_close
+void led1_close(void)
+{
+	GPIO_SetBits(  GPIOC,  GPIO_Pin_13); 	//LED_GREEN_R
+	GPIO_SetBits(GPIOC,  GPIO_Pin_14); 		//LED_RED_R
+}
+
+// led3_open:bule
+void led3_open(void)
+{
+	GPIO_SetBits(  GPIOB,  GPIO_Pin_12); 	//LED_BLUE_L
+}
+
+// led3_close:none
+void led3_close(void)
+{
+	GPIO_ResetBits(  GPIOB,  GPIO_Pin_12); 	//LED_BLUE_L
+}
+
+// led4_red
+void led4_open_red(void)
+{
+	GPIO_ResetBits(  GPIOA,  GPIO_Pin_6 ); 	//LED_GREEN_L
+	GPIO_SetBits(GPIOA,  GPIO_Pin_7 ); 		//LED_RED_L
+}
+
+// led4_green
+void led4_open_green(void)
+{
+	GPIO_SetBits(  GPIOA,  GPIO_Pin_6 ); 	//LED_GREEN_L
+	GPIO_ResetBits(GPIOA,  GPIO_Pin_7 ); 	//LED_RED_L
+}
+
+// led4_close
+void led4_close(void)
+{
+	GPIO_SetBits(  GPIOA,  GPIO_Pin_6 ); 	//LED_GREEN_L
+	GPIO_SetBits(GPIOA,  GPIO_Pin_7 ); 		//LED_RED_L
 }

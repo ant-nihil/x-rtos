@@ -3,7 +3,7 @@
 int main(int argc, char* argv[])
 {
 	led_init();
-	led_open_all();
+	led_all_open();
 	while(1)
 	{
 		

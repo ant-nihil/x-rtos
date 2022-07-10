@@ -5,6 +5,9 @@
 // 包含底层的时钟节拍功能所在的文件
 #include "heart_stm32.h"
 
+uint32_t cpu_sr;    //进入临界代码区时保存CPU状态
+
+
 #define Prio_IdleTask		30
 #define StacSizeIdleTask	512
 uint32_t Stack_IdleTask[StacSizeIdleTask];

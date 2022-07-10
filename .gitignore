@@ -1,0 +1,7 @@
+/build
+/examples/stm32/MDK/DebugConfig
+/examples/stm32/MDK/Listings
+/examples/stm32/MDK/Objects
+/examples/stm32/MDK/Jlink*
+/examples/stm32/MDK/stm32f4_examples.uvguix*
+/.vscode

@@ -541,6 +541,16 @@
             </File>
           </Files>
         </Group>
+        <Group>
+          <GroupName>Asm</GroupName>
+          <Files>
+            <File>
+              <FileName>rtos.S</FileName>
+              <FileType>2</FileType>
+              <FilePath>..\..\..\libcpu\arm\cortex-m4\rtos.S</FilePath>
+            </File>
+          </Files>
+        </Group>
       </Groups>
     </Target>
   </Targets>

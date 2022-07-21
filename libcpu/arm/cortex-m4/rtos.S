@@ -8,7 +8,7 @@
 		IMPORT	p_OS_TCB_HighRdy		;最高优先级任务控制块指针
 
 		EXPORT	OS_TASK_StartHighRdy
-
+		EXPORT	OS_SW
 NVIC_SYSPRI14   EQU     0xE000ED22                              ; System priority register (priority 14).
 NVIC_PENDSV_PRI EQU         0xFFFF                              ; PendSVºÍµÎ´ð¶¨Ê±Æ÷ÓÅÏÈ¼¶ÉèÖÃÎª×îµÍ
 
@@ -47,5 +47,21 @@ OS_TASK_StartHighRdy
 		LDR		SP,[R4]					;任务的栈顶指针赋给SP
 		B		POP_ALL					;根据设定的栈结构顺序出栈
 		BX 		LR
-		
+
+;OS相关
+OS_SW						;任务级的任务切换
+;		STMFD	SP!,{LR}		;PC入栈
+		STMFD	SP!,{R0-R12,LR}	;R0-R12,LR入栈
+				
+		B		GetHigTcbSP
+		BX 		LR
+
+;´ýÔËÐÐµÄÈÎÎñµÄÕ»¶¥Ö¸Õë×°ÔØµ½CPUµÄSP
+GetHigTcbSP								;È¡³ö¸ü¸ßÓÅÏÈ¼¶ÈÎÎñµÄ¶ÑÕ»Ö¸Õëµ½SP,SP=TCB[OSPrioCur].OSTCBStkPtr
+		LDR		R6,=p_OS_TCB_HighRdy	;È¡³ö¸ü¸ßÓÅÏÈ¼¶¾ÍÐ÷ÈÎÎñµÄTCBµØÖ·
+		LDR		R6,[R6]
+		LDR		SP,[R6]			;È¡³ö¸ü¸ßÓÅÏÈ¼¶¾ÍÐ÷ÈÎÎñµÄ¶Ñ¶¥Ö¸Õëµ½SP
+		B		POP_ALL			;È¡³öÉè¶¨µÄÕ»½á¹¹Ë³Ðò³öÕ»
+		BX 		LR
+
 		END

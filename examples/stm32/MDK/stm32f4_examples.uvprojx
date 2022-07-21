@@ -525,11 +525,6 @@
           <GroupName>X-rtos</GroupName>
           <Files>
             <File>
-              <FileName>os_ready_list.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\src\os_ready_list.c</FilePath>
-            </File>
-            <File>
               <FileName>os_task_manager.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\src\os_task_manager.c</FilePath>

@@ -7,6 +7,8 @@
 
 #include "defines.h"
 
+extern uint32_t cpu_sr;    //进入临界代码区时保存CPU状态
+
 // 时钟节拍数
 #define OS_TICKS_PER_SEC	100
 
@@ -20,11 +22,16 @@ void     OS_CPU_RestoreSR	(uint32_t cpu_sr);	/*声明*/
 /*退出临界区*/
 #define 	OS_EXIT_CRITICAL()		do{OS_CPU_RestoreSR(cpu_sr);}while(0)		//恢复中断状态
 
+//ASM code
+void OS_SW  (void);
+
+
 void OS_Init(void);
 void OS_Start(void);
 
 void OS_StartTicker(uint32_t os_ticks);
 
+void OS_Sched(void);
 
 
 

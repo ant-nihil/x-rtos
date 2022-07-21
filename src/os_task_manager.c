@@ -1,4 +1,5 @@
 #include "os_task_manager.h"
+#include "x_rtos.h"
 
 uint32_t OS_RdyTbl=0;       					//任务就绪表，只支持32个任务
 uint32_t OS_Rdy_HighPrio,OS_Rdy_NextTaskPrio;
@@ -9,10 +10,6 @@ Task_Ctr_Block TCB[OS_TASK_NUM+1];
 Task_Ctr_Block *p_OS_TCB_Cur;		//指向当前任务控制块的指针
 Task_Ctr_Block *p_OS_TCB_HighRdy;	//指向最高优先级任务控制块的指针
 
-void OS_TASK_IdleTask(void)    //空任务
-{
-    
-}
 void OS_TASK_Create(void(*Task)(void),uint32_t *p_Stack,uint32_t TaskID)    //任务创建
 {
     if(TaskID<=OS_TASK_NUM)
@@ -57,14 +54,27 @@ void OS_Task_Start(void)
 
 void OS_Task_Supend(int8_t prio)  //任务挂起
 {
-
+	OS_ENTER_CRITICAL();
+	TCB[prio].OS_TCB_Dly=0;			//
+	OS_DelPrioRdy(prio);
+	OS_EXIT_CRITICAL();
 }
 void OS_Task_Resume(int8_t prio)  //任务恢复
 {
-
+	OS_ENTER_CRITICAL();
+	OS_SetPrioRdy(prio);
+	TCB[prio].OS_TCB_Dly=0;
+	OS_EXIT_CRITICAL();
 }
-
-void OS_SetPrioRdy(uint8_t task_id)
+void OS_Task_TimeDly(uint32_t ticks)
 {
-	
+	if(ticks>0)
+	{
+		OS_ENTER_CRITICAL();
+		OS_DelPrioRdy(OS_Rdy_CurPrio);
+		TCB[OS_Rdy_CurPrio].OS_TCB_Dly=ticks;
+		OS_EXIT_CRITICAL();
+
+		OS_Sched();		//任务调度
+	}
 }

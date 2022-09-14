@@ -1,5 +1,5 @@
-#ifndef __STM32F4_INCLUDE_H
-#define __STM32F4_INCLUDE_H
+#ifndef __INCLUDES_H
+#define __INCLUDES_H
 
 // standard library
 #include "stm32f4xx.h"
@@ -13,4 +13,4 @@
 #include "defines.h"
 
 
-#endif  // __STM32F4_INCLUDE_H
+#endif  // __INCLUDES_H

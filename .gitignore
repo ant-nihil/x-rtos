@@ -4,4 +4,10 @@
 /examples/stm32/MDK/Objects
 /examples/stm32/MDK/Jlink*
 /examples/stm32/MDK/stm32f4_examples.uvguix*
+/examples/stm32/stm32f4/F407ZGT6/MDK/DebugConfig
+/examples/stm32/stm32f4/F407ZGT6/MDK/Listings
+/examples/stm32/stm32f4/F407ZGT6/MDK/Objects
+/examples/stm32/stm32f4/F407ZGT6/MDK/stm32f407zgt6_example.uvguix*
+/examples/stm32/stm32f4/F407ZGT6/MDK/Jlink*
+
 /.vscode

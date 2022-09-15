@@ -11,5 +11,7 @@
 /examples/stm32/stm32f4/F407ZGT6/MDK/stm32f407zgt6_example.uvguix*
 /examples/stm32/stm32f4/F407ZGT6/MDK/Jlink*
 /examples/stm32/stm32f4/F407ZGT6/MDK/stm32f407zgt6_example.map
+examples/stm32/stm32f4/F407ZGT6/MDK/rtos.lst
+examples/stm32/stm32f4/F407ZGT6/MDK/startup_stm32f40_41xxx.lst
 
 /.vscode

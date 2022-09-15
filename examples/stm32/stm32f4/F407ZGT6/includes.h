@@ -1,13 +1,17 @@
 #ifndef __INCLUDES_H
 #define __INCLUDES_H
 
+// C library
+#include <stdio.h>
+
 // standard library
 #include "stm32f4xx.h"
 
-// hal
+// hal library
 #include "led_stm32.h"
+#include "stm32_usart.h"
 
-// x-rtos
+// x-rtos library
 #include "x_rtos.h"
 #include "os_task_manager.h"
 #include "defines.h"

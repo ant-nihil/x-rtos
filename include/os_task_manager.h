@@ -48,6 +48,8 @@ void OS_TASK_Create(void(*Task)(void),uint32_t *p_Stack,uint32_t TaskID);    //�
 
 void OS_Task_Start(void);			//任务开始
 
+void OS_Task_Switch(void);			//任务切换
+
 void OS_Task_Supend(int8_t prio);   //任务挂起
 void OS_Task_Resume(int8_t prio);   //任务恢复
 void OS_Task_TimeDly(uint32_t ticks);	//延时函数

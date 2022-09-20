@@ -14,9 +14,21 @@ uint32_t Stack_IdleTask[StacSize_IdleTask];
 
 void OS_IdleTask(void)
 {
+    uint32_t Idle_Count=0;
     while(1)
     {
-        
+        OS_ENTER_CRITICAL();
+        Idle_Count++;
+        if(Idle_Count==500000) {
+            Idle_Count=0;
+            // prtntf("OS_IdleTask is running\r\n");
+        }
+        OS_EXIT_CRITICAL();
+        if(OS_RdyTbl!=(0x1<<Prio_IdleTask)) {
+            // prtntf("OS_IdleTask is over, enter task sched\r\n");
+            OS_Task_Switch();       // 当任务就绪表除了空任务还有其他的任务就绪时，进入任务切换
+        }
+
     }
 }
 

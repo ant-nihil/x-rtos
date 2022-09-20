@@ -51,6 +51,12 @@ void OS_Task_Start(void)
 	OS_TASK_StartHighRdy();						//开启最高优先级任务
 }
 
+void OS_Task_Switch(void)				// 任务切换
+{
+	OS_ENTER_CRITICAL();
+
+	OS_EXIT_CRITICAL();
+}
 
 void OS_Task_Supend(int8_t prio)  //任务挂起
 {

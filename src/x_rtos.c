@@ -21,7 +21,7 @@ void OS_IdleTask(void)
         Idle_Count++;
         if(Idle_Count==500000) {
             Idle_Count=0;
-            // prtntf("OS_IdleTask is running\r\n");
+            printf("OS_IdleTask is running\r\n");
         }
         OS_EXIT_CRITICAL();
         if(OS_RdyTbl!=(0x1<<Prio_IdleTask)) {
@@ -51,11 +51,15 @@ void OS_Start(void)
 
 }
 
+// os start ticker, os layer, realize by call board function
 void OS_StartTicker(uint32_t os_ticks)
 {
     // 此处添加目标板的开启时钟节拍的函数，属于需要通过移植来匹配的功能
     StartTicker(os_ticks);
 }
+
+// interruption service management function, board layer, 
+
 
 void OS_Sched(void)
 {

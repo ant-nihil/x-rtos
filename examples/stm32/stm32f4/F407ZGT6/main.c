@@ -2,12 +2,12 @@
 
 
 
-#define PrioTask0		2					/*任务优先级*/
+#define PrioTask0		1					/*任务优先级*/
 #define StackSizeTask0	512					/*任务堆栈大小定义*/
 uint32_t StackTask0[StackSizeTask0];		/*建立任务堆栈*/
 void Task0(void);							/*任务函数*/
 
-#define PrioTask1		1					/*任务优先级*/
+#define PrioTask1		2					/*任务优先级*/
 #define StackSizeTask1	512					/*任务堆栈大小定义*/
 uint32_t StackTask1[StackSizeTask1];		/*建立任务堆栈*/
 void Task1(void);							/*任务函数*/
@@ -56,8 +56,8 @@ void Task0(void)
 {
 	// 创建其他需要的任务
 	OS_TASK_Create(Task1, &StackTask1[StackSizeTask1-1], PrioTask1);
-	// OS_TASK_Create(Task2, &StackTask2[StackSizeTask2-1], PrioTask2);
-	// OS_TASK_Create(Task3, &StackTask3[StackSizeTask3-1], PrioTask3);
+	OS_TASK_Create(Task2, &StackTask2[StackSizeTask2-1], PrioTask2);
+	OS_TASK_Create(Task3, &StackTask3[StackSizeTask3-1], PrioTask3);
 	// OS_TASK_Create(Task4, &StackTask4[StackSizeTask4-1], PrioTask4);
 	while(1)
 	{
@@ -81,7 +81,7 @@ void Task2(void)
 	while(1)
 	{
 		printf("Task2 \r\n");
-		// OS_Task_Supend(PrioTask2);	// 使自己进入挂起状态
+		OS_Task_Supend(PrioTask2);	// 使自己进入挂起状态
 	}
 }
 void Task3(void)
@@ -89,8 +89,8 @@ void Task3(void)
 	while(1)
 	{
 		printf("Resume Task2 \r\n");
-		// OS_Task_Resume(PrioTask2);	// 恢复任务2
-		// OS_Task_TimeDly(800);
+		OS_Task_Resume(PrioTask2);	// 恢复任务2
+		OS_Task_TimeDly(800);
 	}
 }
 

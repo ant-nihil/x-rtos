@@ -73,6 +73,10 @@ void OS_Task_Supend(int8_t prio)  //任务挂起
 	TCB[prio].OS_TCB_Dly=0;			//
 	OS_DelPrioRdy(prio);
 	OS_EXIT_CRITICAL();
+
+	if(OS_Rdy_CurPrio==prio){
+		OS_Task_Switch();
+	}
 }
 void OS_Task_Resume(int8_t prio)  //任务恢复
 {
@@ -80,6 +84,10 @@ void OS_Task_Resume(int8_t prio)  //任务恢复
 	OS_SetPrioRdy(prio);
 	TCB[prio].OS_TCB_Dly=0;
 	OS_EXIT_CRITICAL();
+
+	if(OS_Rdy_CurPrio==prio){
+		OS_Task_Switch();
+	}
 }
 void OS_Task_TimeDly(uint32_t ticks)
 {

@@ -61,7 +61,7 @@ void Task0(void)
 	// OS_TASK_Create(Task4, &StackTask4[StackSizeTask4-1], PrioTask4);
 	while(1)
 	{
-		printf("Task 0 is running\r\n");
+		printf("Task 0 \r\n");
 		OS_Task_TimeDly(100);
 	}
 }
@@ -70,7 +70,7 @@ void Task1(void)
 {
 	while (1)
 	{
-		printf("Task 1 is running\r\n");
+		printf("Task 1 \r\n");
 		OS_Task_TimeDly(300);
 	}
 	
@@ -80,7 +80,7 @@ void Task2(void)
 {
 	while(1)
 	{
-		printf("Task2\r\n");
+		printf("Task2 \r\n");
 		// OS_Task_Supend(PrioTask2);	// 使自己进入挂起状态
 	}
 }
@@ -88,7 +88,7 @@ void Task3(void)
 {
 	while(1)
 	{
-		printf("Resume Task2\r\n");
+		printf("Resume Task2 \r\n");
 		// OS_Task_Resume(PrioTask2);	// 恢复任务2
 		// OS_Task_TimeDly(800);
 	}
@@ -98,7 +98,7 @@ void Task4(void)
 {
 	while(1)
 	{
-		printf("Task4 begin\r\n");
+		printf("Task4 begin \r\n");
 		// OS_Task_Supend(PrioTask4);	//test		
 		// OS_Task_Switch();			//当使用OS_Task_Switch这个而不是OS_Task_TimeDly时程序并不会卡死
 		// OS_Task_TimeDly(300);		//程序会卡死
@@ -112,12 +112,13 @@ void SysTick_Handler(void)
     iCount++;
     if(iCount==500) {
         iCount=0; // while os_tick is 100, record 5 s
-        printf("5s has got\r\n");
+        // printf("5s has got\r\n");
     }
 
     for(i=0;i<OS_TASK_NUM+1;i++) {
         if(TCB[i].OS_TCB_Dly)
         {
+			// printf("TCB[%d].OS_TCB_Dly=%d\r\n", i, TCB[i].OS_TCB_Dly);
             TCB[i].OS_TCB_Dly--;
             if(TCB[i].OS_TCB_Dly==0)
             {

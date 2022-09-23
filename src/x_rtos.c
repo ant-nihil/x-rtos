@@ -21,7 +21,7 @@ void OS_IdleTask(void)
         Idle_Count++;
         if(Idle_Count==500000) {
             Idle_Count=0;
-            printf("OS_IdleTask is running\r\n");
+            // printf("OS_IdleTask is running\r\n");
         }
         OS_EXIT_CRITICAL();
         if(OS_RdyTbl!=(0x1<<Prio_IdleTask)) {
@@ -59,20 +59,3 @@ void OS_StartTicker(uint32_t os_ticks)
 }
 
 // interruption service management function, board layer, 
-
-
-void OS_Sched(void)
-{
-    OS_ENTER_CRITICAL();
-    OS_Task_GetHighRdy();
-    if(OS_Rdy_CurPrio!=OS_Rdy_HighPrio)
-    {
-        p_OS_TCB_Cur=&TCB[OS_Rdy_CurPrio];
-        p_OS_TCB_HighRdy=&TCB[OS_Rdy_HighPrio];
-        OS_Rdy_CurPrio=OS_Rdy_HighPrio;
-
-        OS_EXIT_CRITICAL();
-
-        OS_SW();
-    }
-}

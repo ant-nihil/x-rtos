@@ -31,8 +31,6 @@ void OS_Start(void);
 
 void OS_StartTicker(uint32_t os_ticks);
 
-void OS_Sched(void);
-
 
 
 #endif  // __X_RTOS_H

@@ -54,8 +54,17 @@ void OS_Task_Start(void)
 void OS_Task_Switch(void)				// 任务切换
 {
 	OS_ENTER_CRITICAL();
+    OS_Task_GetHighRdy();                   // 得到最高优先级的任务
+    if(OS_Rdy_CurPrio!=OS_Rdy_HighPrio)     // 如果当前的优先级不是最高,取当前任务控制块指针和最高优先级任务控制块指针
+    {
+        p_OS_TCB_Cur=&TCB[OS_Rdy_CurPrio];
+        p_OS_TCB_HighRdy=&TCB[OS_Rdy_HighPrio];
+        OS_Rdy_CurPrio=OS_Rdy_HighPrio;     // 
 
-	OS_EXIT_CRITICAL();
+        OS_EXIT_CRITICAL();
+
+        OS_SW();
+    }
 }
 
 void OS_Task_Supend(int8_t prio)  //任务挂起
@@ -81,6 +90,6 @@ void OS_Task_TimeDly(uint32_t ticks)
 		TCB[OS_Rdy_CurPrio].OS_TCB_Dly=ticks;
 		OS_EXIT_CRITICAL();
 
-		OS_Sched();		//任务调度
+		OS_Task_Switch();		//任务调度
 	}
 }

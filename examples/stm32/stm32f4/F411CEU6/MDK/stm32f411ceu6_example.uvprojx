@@ -47,15 +47,15 @@
             <NotGenerated>0</NotGenerated>
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
-          <OutputDirectory>..\..\..\build\stm32\stm32f4_examples\</OutputDirectory>
-          <OutputName>stm32f4_examples</OutputName>
+          <OutputDirectory>..\..\..\..\..\build\stm32\stm32f407ceu6_example\</OutputDirectory>
+          <OutputName>stm32f411ceu6_example</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
           <DebugInformation>1</DebugInformation>
-          <BrowseInformation>1</BrowseInformation>
+          <BrowseInformation>0</BrowseInformation>
           <ListingPath>.\Listings\</ListingPath>
-          <HexFormatSelection>1</HexFormatSelection>
+          <HexFormatSelection>0</HexFormatSelection>
           <Merge32K>0</Merge32K>
           <CreateBatchFile>0</CreateBatchFile>
           <BeforeCompile>
@@ -119,7 +119,7 @@
         </DllOption>
         <DebugOption>
           <OPTHX>
-            <HexSelection>1</HexSelection>
+            <HexSelection>0</HexSelection>
             <HexRangeLowAddress>0</HexRangeLowAddress>
             <HexRangeHighAddress>0</HexRangeHighAddress>
             <HexOffset>0</HexOffset>
@@ -335,7 +335,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER,STM32F411xE</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\stm32;..\..\..\hal;..\..\..\hal\stm32;..\..\..\include;..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\CMSIS\Device\ST\STM32F4xx\Include;..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\CMSIS\Include;..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\STM32F4xx_StdPeriph_Driver\inc</IncludePath>
+              <IncludePath>..\..\F411CEU6;..\..\..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\CMSIS\Device\ST\STM32F4xx\Include;..\..\..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\CMSIS\Include;..\..\..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\STM32F4xx_StdPeriph_Driver\inc;..\..\..\..\..\include;..\..\..\..\..\bsp\stm32\libraries\HAL_Drivers;..\..\..\..\..\hal\stm32\uart;..\..\..\..\..\hal\stm32\led;..\..\..\..\..\hal\stm32\heart</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -397,7 +397,7 @@
             <File>
               <FileName>startup_stm32f411xe.s</FileName>
               <FileType>2</FileType>
-              <FilePath>..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\CMSIS\Device\ST\STM32F4xx\Source\Templates\arm\startup_stm32f411xe.s</FilePath>
+              <FilePath>..\..\..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\CMSIS\Device\ST\STM32F4xx\Source\Templates\arm\startup_stm32f411xe.s</FilePath>
             </File>
           </Files>
         </Group>
@@ -407,7 +407,7 @@
             <File>
               <FileName>system_stm32f4xx.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\CMSIS\Device\ST\STM32F4xx\Source\Templates\system_stm32f4xx.c</FilePath>
+              <FilePath>..\..\..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\CMSIS\Device\ST\STM32F4xx\Source\Templates\system_stm32f4xx.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -417,77 +417,107 @@
             <File>
               <FileName>misc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\STM32F4xx_StdPeriph_Driver\src\misc.c</FilePath>
+              <FilePath>..\..\..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\STM32F4xx_StdPeriph_Driver\src\misc.c</FilePath>
             </File>
             <File>
               <FileName>stm32f4xx_adc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c</FilePath>
+              <FilePath>..\..\..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f4xx_can.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f4xx_cec.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cec.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f4xx_crc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_crc.c</FilePath>
             </File>
             <File>
               <FileName>stm32f4xx_dac.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c</FilePath>
+              <FilePath>..\..\..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c</FilePath>
             </File>
             <File>
               <FileName>stm32f4xx_dbgmcu.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.c</FilePath>
+              <FilePath>..\..\..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dbgmcu.c</FilePath>
             </File>
             <File>
               <FileName>stm32f4xx_dma.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.c</FilePath>
+              <FilePath>..\..\..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.c</FilePath>
             </File>
             <File>
               <FileName>stm32f4xx_exti.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.c</FilePath>
+              <FilePath>..\..\..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_exti.c</FilePath>
             </File>
             <File>
               <FileName>stm32f4xx_flash.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.c</FilePath>
+              <FilePath>..\..\..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.c</FilePath>
             </File>
             <File>
               <FileName>stm32f4xx_gpio.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c</FilePath>
+              <FilePath>..\..\..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c</FilePath>
             </File>
             <File>
               <FileName>stm32f4xx_i2c.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.c</FilePath>
+              <FilePath>..\..\..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.c</FilePath>
             </File>
             <File>
               <FileName>stm32f4xx_iwdg.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.c</FilePath>
+              <FilePath>..\..\..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_iwdg.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f4xx_pwr.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.c</FilePath>
             </File>
             <File>
               <FileName>stm32f4xx_rcc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c</FilePath>
+              <FilePath>..\..\..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f4xx_rtc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rtc.c</FilePath>
             </File>
             <File>
               <FileName>stm32f4xx_spi.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c</FilePath>
+              <FilePath>..\..\..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f4xx_syscfg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_syscfg.c</FilePath>
             </File>
             <File>
               <FileName>stm32f4xx_tim.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c</FilePath>
+              <FilePath>..\..\..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c</FilePath>
             </File>
             <File>
               <FileName>stm32f4xx_usart.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c</FilePath>
+              <FilePath>..\..\..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c</FilePath>
             </File>
             <File>
               <FileName>stm32f4xx_wwdg.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.c</FilePath>
+              <FilePath>..\..\..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_wwdg.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -497,17 +527,22 @@
             <File>
               <FileName>led.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\hal\led.c</FilePath>
+              <FilePath>..\..\..\..\..\hal\led.c</FilePath>
             </File>
             <File>
-              <FileName>led_stm32.c</FileName>
+              <FileName>stm32_heart.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\hal\stm32\led_stm32.c</FilePath>
+              <FilePath>..\..\..\..\..\hal\stm32\heart\stm32_heart.c</FilePath>
             </File>
             <File>
-              <FileName>heart_stm32.c</FileName>
+              <FileName>stm32_led.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\hal\stm32\heart_stm32.c</FilePath>
+              <FilePath>..\..\..\..\..\hal\stm32\led\stm32_led.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32_usart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\hal\stm32\uart\stm32_usart.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -515,9 +550,9 @@
           <GroupName>Include</GroupName>
           <Files>
             <File>
-              <FileName>includes.h</FileName>
+              <FileName>stm32f411ceu6_includes.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\includes.h</FilePath>
+              <FilePath>..\stm32f411ceu6_includes.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -527,12 +562,12 @@
             <File>
               <FileName>os_task_manager.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\src\os_task_manager.c</FilePath>
+              <FilePath>..\..\..\..\..\src\os_task_manager.c</FilePath>
             </File>
             <File>
               <FileName>x_rtos.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\src\x_rtos.c</FilePath>
+              <FilePath>..\..\..\..\..\src\x_rtos.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -542,7 +577,7 @@
             <File>
               <FileName>rtos.S</FileName>
               <FileType>2</FileType>
-              <FilePath>..\..\..\libcpu\arm\cortex-m4\rtos.S</FilePath>
+              <FilePath>..\..\..\..\..\libcpu\arm\cortex-m4\rtos.S</FilePath>
             </File>
           </Files>
         </Group>

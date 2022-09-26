@@ -1,5 +1,5 @@
-#ifndef __LED_STM32_H
-#define __LED_STM32_H
+#ifndef __STM32_LED_H
+#define __STM32_LED_H
 
 #include <stm32f4xx.h>
 
@@ -18,4 +18,4 @@ void led4_open_red(void);
 void led4_open_green(void);
 void led4_close(void);
 
-#endif
+#endif // __STM32_LED_H

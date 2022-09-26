@@ -1,6 +1,4 @@
-#include <includes.h>
-
-
+#include <stm32f407zgt6_includes.h>
 
 #define PrioTask0		1					/*任务优先级*/
 #define StackSizeTask0	512					/*任务堆栈大小定义*/
@@ -28,11 +26,7 @@ uint32_t StackTask4[StackSizeTask4];		/*建立任务堆栈*/
 void Task4(void);							/*任务函数*/
 
 
-
-
-
 void board_init(void);
-
 
 // main code
 int main(int argc, char* argv[])
@@ -45,6 +39,7 @@ int main(int argc, char* argv[])
 	OS_Task_Start();
 }
 
+// board init
 void board_init(void)
 {
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);

@@ -51,10 +51,10 @@
           <OutputName>stm32f407zgt6_example</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
-          <CreateHexFile>1</CreateHexFile>
+          <CreateHexFile>0</CreateHexFile>
           <DebugInformation>1</DebugInformation>
-          <BrowseInformation>1</BrowseInformation>
-          <ListingPath>.\</ListingPath>
+          <BrowseInformation>0</BrowseInformation>
+          <ListingPath>.\Listings\</ListingPath>
           <HexFormatSelection>0</HexFormatSelection>
           <Merge32K>0</Merge32K>
           <CreateBatchFile>0</CreateBatchFile>
@@ -335,7 +335,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F40_41xxx,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\F407ZGT6;..\..\..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\CMSIS\Device\ST\STM32F4xx\Include;..\..\..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\CMSIS\Include;..\..\..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\STM32F4xx_StdPeriph_Driver\inc;..\..\..\..\..\include;..\..\..\..\..\hal;..\..\..\..\..\hal\stm32;..\..\..\..\..\bsp\stm32\libraries\HAL_Drivers;..\..\..\..\..\hal\stm32\uart</IncludePath>
+              <IncludePath>..\..\F407ZGT6;..\..\..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\CMSIS\Device\ST\STM32F4xx\Include;..\..\..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\CMSIS\Include;..\..\..\..\..\bsp\stm32\libraries\STM32F4xx_DSP_StdPeriph_Lib\STM32F4xx_StdPeriph_Driver\inc;..\..\..\..\..\include;..\..\..\..\..\hal;..\..\..\..\..\bsp\stm32\libraries\HAL_Drivers;..\..\..\..\..\hal\stm32\uart;..\..\..\..\..\hal\stm32\led;..\..\..\..\..\hal\stm32\heart</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -630,14 +630,19 @@
           <GroupName>Hal</GroupName>
           <Files>
             <File>
-              <FileName>heart_stm32.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\..\..\..\hal\stm32\heart_stm32.c</FilePath>
-            </File>
-            <File>
               <FileName>stm32_usart.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\..\..\hal\stm32\uart\stm32_usart.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32_led.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\hal\stm32\led\stm32_led.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32_heart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\hal\stm32\heart\stm32_heart.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -645,9 +650,9 @@
           <GroupName>Include</GroupName>
           <Files>
             <File>
-              <FileName>includes.h</FileName>
+              <FileName>stm32f407zgt6_includes.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\includes.h</FilePath>
+              <FilePath>..\stm32f407zgt6_includes.h</FilePath>
             </File>
           </Files>
         </Group>

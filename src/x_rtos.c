@@ -3,10 +3,9 @@
 #include "os_task_manager.h"
 
 // 包含底层的时钟节拍功能所在的文件
-#include "heart_stm32.h"
+#include "stm32_heart.h"
 
 uint32_t cpu_sr;    //进入临界代码区时保存CPU状态
-
 
 #define Prio_IdleTask		30
 #define StacSize_IdleTask	512
@@ -28,7 +27,6 @@ void OS_IdleTask(void)
             // prtntf("OS_IdleTask is over, enter task sched\r\n");
             OS_Task_Switch();       // 当任务就绪表除了空任务还有其他的任务就绪时，进入任务切换
         }
-
     }
 }
 
@@ -47,8 +45,6 @@ void OS_Start(void)
     p_OS_TCB_HighRdy=&TCB[OS_Rdy_HighPrio];
     p_OS_TCB_Cur=p_OS_TCB_HighRdy;
     OS_TASK_StartHighRdy();
-    // led3_open();
-
 }
 
 // os start ticker, os layer, realize by call board function

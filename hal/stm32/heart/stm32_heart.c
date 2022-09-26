@@ -1,4 +1,4 @@
-#include "heart_stm32.h"
+#include "stm32_heart.h"
 
 uint32_t StartTicker(uint32_t TicksPerSec) // 每秒的节拍数
 {

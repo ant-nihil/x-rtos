@@ -3,37 +3,55 @@
 #include "os_task_manager.h"
 
 // 包含底层的时钟节拍功能所在的文件
-#include "heart_stm32.h"
+#include "stm32_heart.h"
 
 uint32_t cpu_sr;    //进入临界代码区时保存CPU状态
 
-
 #define Prio_IdleTask		30
-#define StacSizeIdleTask	512
-uint32_t Stack_IdleTask[StacSizeIdleTask];
+#define StacSize_IdleTask	512
+uint32_t Stack_IdleTask[StacSize_IdleTask];
 
-void IdleTask(void)
+void OS_IdleTask(void)
 {
-
+    uint32_t Idle_Count=0;
+    while(1)
+    {
+        OS_ENTER_CRITICAL();
+        Idle_Count++;
+        if(Idle_Count==500000) {
+            Idle_Count=0;
+            // printf("OS_IdleTask is running\r\n");
+        }
+        OS_EXIT_CRITICAL();
+        if(OS_RdyTbl!=(0x1<<Prio_IdleTask)) {
+            // prtntf("OS_IdleTask is over, enter task sched\r\n");
+            OS_Task_Switch();       // 当任务就绪表除了空任务还有其他的任务就绪时，进入任务切换
+        }
+    }
 }
 
 // os init
 void OS_Init(void)
 {
     OS_StartTicker(OS_TICKS_PER_SEC);
-    OS_TASK_Create(IdleTask,&Stack_IdleTask[StacSizeIdleTask-1],Prio_IdleTask);
+    OS_TASK_Create(OS_IdleTask,&Stack_IdleTask[StacSize_IdleTask-1],Prio_IdleTask);
 }
 
 // os start
 void OS_Start(void)
 {
-
+    OS_Task_GetHighRdy();   //找出优先级最高的任务
+    OS_Rdy_CurPrio=OS_Rdy_HighPrio;     //将最高优先级的任务标志赋给当前任务标志
+    p_OS_TCB_HighRdy=&TCB[OS_Rdy_HighPrio];
+    p_OS_TCB_Cur=p_OS_TCB_HighRdy;
+    OS_TASK_StartHighRdy();
 }
 
-
-
+// os start ticker, os layer, realize by call board function
 void OS_StartTicker(uint32_t os_ticks)
 {
     // 此处添加目标板的开启时钟节拍的函数，属于需要通过移植来匹配的功能
     StartTicker(os_ticks);
 }
+
+// interruption service management function, board layer, 
